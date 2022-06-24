@@ -1,0 +1,17 @@
+{% include "base.html" %}
+<table>
+<tr>
+    <th>Data</th>
+    <th>Vencedor</th>
+    <th>Perdedor</th>
+    <th>Resultado</th>
+</tr>
+{% for match in match_list %}
+<tr>
+    <td>{{ match.date | date:"SHORT_DATE_FORMAT"}}</td>
+    <td>{{ match.winner }}</td>
+    <td>{{ match.loser }}</td>
+    <td>{{ match.games_winner }} X {{ match.games_loser }}</td>
+</tr>
+{% endfor %}
+</table>

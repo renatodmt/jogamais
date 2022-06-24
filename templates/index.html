@@ -1,0 +1,31 @@
+{% load socialaccount %}
+{% include "base.html" %}
+<body>
+  {% if messages %}
+    <div>
+      <ul>
+        {% for message in messages %}
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success" role="alert">{{message}}</div>
+          {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger" role="alert">{{message}}</div>
+          {% else}
+            <div class="alert alert-dark" role="alert">{{message}}</div>
+          {% endif %}
+        {% endfor %}
+
+      </ul>
+    </div>
+  {% endif %}
+
+  <ul>
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'account_logout' %}">Logout</a></li>
+      <li><a href="{% url 'add_match' %}">Inserir uma partida</a></li>
+      <li><a href="{% url 'ranking' %}">Ranking</a></li>
+      <li><a href="{% url 'user_games' %}">Seus Jogos</a></li>
+    {% else %}
+      <li><a href="{% provider_login_url "google" %}">Logue-se com o Google</a></li>
+    {% endif %}
+  </ul>
+</body>

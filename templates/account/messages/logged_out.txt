@@ -1,0 +1,2 @@
+{% load i18n %}
+{% blocktrans %}Você foi deslogado com sucesso.{% endblocktrans %}

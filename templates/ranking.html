@@ -1,0 +1,17 @@
+{% include "base.html" %}
+<table>
+<tr>
+    <th>Jogador</th>
+    <th>Jogos</th>
+    <th>Vitórias</th>
+    <th>Derrotas</th>
+</tr>
+{% for player in ranking %}
+    <tr>
+        <td>{{ player.name }}</td>
+        <td>{{ player.matches }}</td>
+        <td>{{ player.wins }}</td>
+        <td>{{ player.losses }}</td>
+    </tr>
+{% endfor %}
+</table>
